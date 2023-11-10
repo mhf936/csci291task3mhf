@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define Size 6
+void iterative_design(int array[],int length);
+int main() {
+ int arr[Size];
+ iterative_design(arr,Size);
+}
+void iterative_design(int array[],int length){
+int L;
+int i;
+for(int i=0;i<length;i++){
+printf("Enter the array[%d] value",i);
+scanf("%d",&array[i]);
+}
+for(int i=0;i<length;i++){
+  if(array[i]%2!=0){
+L=array[i];
+array[i]=L;
+  }
+else if(array[i]%2=0){
+L=array[i];
+array[i]=L;
+
+  }
