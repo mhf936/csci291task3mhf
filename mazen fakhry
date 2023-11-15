@@ -1,24 +1,71 @@
 #include <stdio.h>
-#define Size 6
+#define Size 10
 void iterative_design(int array[],int length);
-int main() {
- int arr[Size];
- iterative_design(arr,Size);
+int recursive_design(int array[],int length);
+int main(){
+int arr[Size];
+iterative_design(arr,Size);
+recursive_design(arr,Size);
+for(int i=0;i<Size;i++){
+  printf("\n\nthe recursive array values are  %d\n",arr[i]);
+}
 }
 void iterative_design(int array[],int length){
-int L;
 int i;
+int E; 
+int O; 
 for(int i=0;i<length;i++){
-printf("Enter the array[%d] value",i);
+printf("\nEnter the  array[%d] value: ",i);
 scanf("%d",&array[i]);
 }
+  int even_count=0;
+  int odd_count=0;
+    for (int i = 0; i < length; i++) {
+        if (array[i]%2==1) 
+            odd_count++; 
+        else
+            even_count++;}
+            E=even_count;
+            O=odd_count;
+int F[E];
+int L[O];
+int S=0;
+int Q=0;
 for(int i=0;i<length;i++){
-  if(array[i]%2!=0){
-L=array[i];
-array[i]=L;
-  }
-else if(array[i]%2=0){
-L=array[i];
-array[i]=L;
+if(array[i]%2!=0){
+L[S]=array[i];
+S++;}
+  else if(array[i]%2==0){
+F[Q]=array[i];
+Q++;
+}}
+for(int i=0;i<S;i++){
+array[i]=L[i];
+} 
+for(int i=0;i<Q;i++){
+array[S+i]=F[i];}
+for(int i=0;i<length;i++){
+printf("the array values are  %d\n",array[i]);
+}
+}
 
-  }
+int recursive_design(int array[],int length){
+int i=0;
+int j=1;
+int L;
+int D;
+if(i<j){
+    if(array[i]<array[j]){
+L=array[i];
+D=array[j];
+array[j]=L;
+array[i]=D;
+i++;
+j++;
+    }
+}
+    else{
+      return recursive_design(&array[length-1],length);
+    }
+    return 0;
+}
