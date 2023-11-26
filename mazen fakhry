@@ -1,25 +1,33 @@
 #include <stdio.h>
 #define Size 10
+//function prototypes
 void iterative_design(int array[],int length);
 int recursive_design(int array[],int length);
 int main(){
+//decleration of array
 int arr[Size];
+//function recall
 iterative_design(arr,Size);
 recursive_design(arr,Size);
+//printing recursive array
 for(int i=0;i<Size;i++){
   printf("\n\nthe recursive array values are  %d\n",arr[i]);
 }
 }
+//iterative design function 
 void iterative_design(int array[],int length){
 int i;
 int E; 
 int O; 
+//for user to input array values
 for(int i=0;i<length;i++){
 printf("\nEnter the  array[%d] value: ",i);
 scanf("%d",&array[i]);
 }
+//declaring even and odd count will be used as the sizes for two arrays later
   int even_count=0;
   int odd_count=0;
+//finds the number of odd and even values
     for (int i = 0; i < length; i++) {
         if (array[i]%2==1) 
             odd_count++; 
@@ -31,6 +39,7 @@ int F[E];
 int L[O];
 int S=0;
 int Q=0;
+//checks if the number is odd it places that number into the L array however if its even it is placed in the F array 
 for(int i=0;i<length;i++){
 if(array[i]%2!=0){
 L[S]=array[i];
@@ -39,11 +48,14 @@ S++;}
 F[Q]=array[i];
 Q++;
 }}
+//going until less than the value of S the array will store odd numbers
 for(int i=0;i<S;i++){
 array[i]=L[i];
 } 
+//then starting from S+i as the index of the array meaning it will start from where it left of it will store the even values in the array
 for(int i=0;i<Q;i++){
 array[S+i]=F[i];}
+//printing the array
 for(int i=0;i<length;i++){
 printf("the array values are  %d\n",array[i]);
 }
@@ -54,8 +66,11 @@ int i=0;
 int j=1;
 int L;
 int D;
+//if the index i is less than j then it will execute the program under it 
 if(i<j){
+//then it checks if the value in the i index  before is less than the value of the j index it will then excute the program
     if(array[i]<array[j]){
+//L and D take values from the array and then they for the different indexes they re enter them into the array 
 L=array[i];
 D=array[j];
 array[j]=L;
@@ -65,6 +80,7 @@ j++;
     }
 }
     else{
+//returns the function as should in a recursive function it will unshuffle the array then once its unshuffled it will reshuffle the array
       return recursive_design(&array[length-1],length);
     }
     return 0;
